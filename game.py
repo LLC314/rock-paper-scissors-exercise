@@ -1,7 +1,15 @@
 
 import random
+import os 
+import dotenv
 
-print("Rock, Paper, Scissors, Shoot!")
+dotenv.load_dotenv()
+
+
+PLAYER_NAME = os.getenv("PLAYER_NAME")
+
+
+print("Welcome", PLAYER_NAME,"to Rock, Paper, Scissors, Shoot!")
 print("-----------------------------")
 user_choice = input("Please choose either 'rock', 'paper' or 'scissors':")
 #print("USER CHOICE:", user_choice)
@@ -14,10 +22,13 @@ else:
     print("OOPS, invalid input. Please try again.")    
     exit()
 
+#validate options
 valid_options = ["rock", "paper", "scissors"]
 computer_choice = random.choice(valid_options)
 print("COMPUTER CHOICE:", computer_choice)
 
+
+#determine the winner
 if user_choice == computer_choice:
     print ("IT'S A TIE!")
 elif user_choice == "rock":
@@ -38,6 +49,6 @@ elif user_choice == "scissors":
 
 
 
-
+#ending message
 print("-----------------------------------------------")
 print("THIS IS THE END OF OUR GAME. PLEASE PLAY AGAIN.")
